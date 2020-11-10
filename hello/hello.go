@@ -6,6 +6,9 @@ import "fmt"
 const englishHelloPrefix = "Hello, "
 
 func aHello(name string) string {
+	if name == "" {
+		name = "world"
+	}
 	return englishHelloPrefix + name
 }
 
