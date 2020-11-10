@@ -5,13 +5,17 @@ import "fmt"
 
 const englishHelloPrefix = "Hello, "
 
-func aHello(name string) string {
+func aHello(name string, language string) string {
 	if name == "" {
 		name = "world"
+	}
+
+	if language == "Spanish" {
+		return "Hola, " + name
 	}
 	return englishHelloPrefix + name
 }
 
 func main() {
-	fmt.Println(aHello("world"))
+	fmt.Println(aHello("world", ""))
 }

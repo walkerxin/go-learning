@@ -3,7 +3,7 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-	got := aHello("Chris")
+	got := aHello("Chris", "")
 	want := "Hello, Chris"
 
 	if got != want {
@@ -29,6 +29,7 @@ func TestHello(t *testing.T) {
 	当使用像 Go 这样的静态类型语言时，聆听编译器 是很重要的
 	【需求1】指定hello的人
 	【需求2】Hello("") 未指定时，返回 "Hello, world"
+	【需求3】添加第二个参数，指定hello的语言
 */
 
 /*
