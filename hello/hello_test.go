@@ -28,5 +28,12 @@ func TestHello(t *testing.T) {
 /* 后面都用测试驱动开发（TDD）
 	当使用像 Go 这样的静态类型语言时，聆听编译器 是很重要的
 	【需求1】指定hello的人
+	【需求2】Hello("") 未指定时，返回 "Hello, world"
+*/
+
+/*
+**常量**
+常量定义 const englishHelloPrefix = "Hello, "
+优点：易于理解+提高性能（避免相同的字符串其实例多次创建）
 
 */
