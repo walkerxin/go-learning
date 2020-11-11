@@ -3,7 +3,7 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-	got := aHello("Chris", "")
+	got := Hello("Chris", "")
 	want := "Hello, Chris"
 
 	if got != want {
@@ -11,7 +11,7 @@ func TestHello(t *testing.T) {
 	}
 }
 
-// aHello 方法测试用例
+// Hello 方法测试用例
 /*
 - 命名
 	1. 文件名 xxx_test.go

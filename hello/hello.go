@@ -9,7 +9,7 @@ const englishHelloPrefix = "Hello, "
 const spanishHelloPrefix = "Hola, "
 const frenchHelloPrefix = "Bonjour, "
 
-func aHello(name string, language string) string {
+func Hello(name string, language string) string {
 	if name == "" {
 		name = "world"
 	}
@@ -30,5 +30,5 @@ func greetingPrefix(language string) (prefix string) {
 }
 
 func main() {
-	fmt.Println(aHello("world", ""))
+	fmt.Println(Hello("world", ""))
 }
