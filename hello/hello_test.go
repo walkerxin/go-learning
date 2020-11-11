@@ -37,4 +37,5 @@ func TestHello(t *testing.T) {
 常量定义 const englishHelloPrefix = "Hello, "
 优点：易于理解+提高性能（避免相同的字符串其实例多次创建）
 
+**swith 语句**
 */
