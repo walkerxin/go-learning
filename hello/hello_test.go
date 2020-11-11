@@ -14,7 +14,7 @@ func TestHello(t *testing.T) {
 // Hello 方法测试用例
 /*
 - 命名
-	1. 文件名 xxx_test.go
+	1. 测试文件名 xxx_test.go
 	2. 测试函数名要以 Test+Xxx 开头
 	3. t *testing.T 作为参数
 - if := t.Errorf
@@ -40,6 +40,8 @@ func TestHello(t *testing.T) {
 **swith 语句**
 **提取出功能函数**
 命名返回值 <=> 声明了返回值变量 prefix，
+	【使用场景】通常应该在结果的含义在上下文中不明确时使用
+		[more](https://github.com/golang/go/wiki/CodeReviewComments#named-result-parameters)
 	1. 它将被分配「零」值。这取决于类型，例如 int 是 0，对于字符串它是 ""。
 		- 你只需调用 return 而不是 return prefix 即可返回所设置的值。
 	2. 这将显示在 Go Doc 中，使你的代码更加清晰。
