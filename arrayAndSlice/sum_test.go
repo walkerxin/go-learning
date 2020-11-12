@@ -2,20 +2,21 @@ package arrayAndSlice
 
 import "testing"
 
+//【需求1】创建一个 Sum 函数，它使用 for 来循环获取数组中的元素并返回所有元素的总和。
 func TestSum(t *testing.T) {
-	numbers := [5]int{1, 2, 3, 4, 5}
-	
-	got := Sum(numbers)
-	want := 15
+	t.Run("collection of any size", func(t *testing.T) {
+		numbers := []int {1, 2, 3}
+		
+		got := Sum(numbers)
+		want := 6
 
-	if got != want {
-		t.Errorf("expected '%d' but got '%d' given, %v", want, got, numbers)
-	}
-
+		if got != want {
+			t.Errorf("got '%d' want '%d' given, %v", got, want, numbers)
+		}
+	})
 }
 
 
-// 【需求】创建一个 Sum 函数，它使用 for 来循环获取数组中的元素并返回所有元素的总和。
 /*
 1. 如何声明并初始化一个数组
 	[length]type{value1, value2, ..., valueN}
@@ -33,4 +34,12 @@ func TestSum(t *testing.T) {
 FAIL    github.com/amanda/arrayAndSlice [build failed]
 
 因为这个原因，所以数组比较笨重，大多数情况下我们都不会使用它。
+5. 使用**切片类型**改写，以支持动态大小
+	> Go 的切片（slice）类型不会将集合的长度保存在类型中，因此它的长度是不固定的。
+	- 语法上和数组非常相似，只是在声明的时候不指定长度
+		mySlice := []int{1, 2, 3}
+		mySlice := [3]int{1, 2, 3}
+	- 执行`覆盖率测试工具` go test -cover
+
+
 */
