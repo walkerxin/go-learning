@@ -28,7 +28,31 @@ func TestSumAll(t *testing.T) {
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %v want %v", got, want)
 	}
+}
 
+/*【需求3】进化为 SumAllTails，
+	把每个切片的尾部元素相加（尾部的意思就是除去第一个元素以外的其他元素）*/
+func TestSumAllTails(t *testing.T) {
+	checkSums := func(t *testing.T, got, want []int) {
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	}
+
+	t.Run("make the sums of some slices", func(t *testing.T) {
+		numbers1 := []int{1, 2, 3}
+		numbers2 := []int{4, 5}
+		got := SumAllTails(numbers1, numbers2)
+		want := []int{5, 5}
+		checkSums(t, got, want)
+	})
+
+	// 测试空切片传入时可能发生的越界 slice bounds out of range
+	t.Run("safely sum empty slices", func(t *testing.T) {
+		got := SumAllTails([]int{}, []int{4, 5})
+		want := []int{0, 5}
+		checkSums(t, got, want)
+	})
 }
 
 /*数组：`有序`、`多个相同类型的元素`
@@ -58,7 +82,7 @@ FAIL    github.com/amanda/arrayAndSlice [build failed]
 
 /*【需求2】SumAll
 6. 使用`可变参数` ...[例子](https://gobyexample.com/variadic-functions)
-7. 切片比较
+7. 切片比较是否相等的方法
 	invalid operation: got != want (slice can only be compared to nil)
 	在 Go 中不能对切片使用等号运算符。
 	- 你可以写一个函数迭代每个元素来检查它们的值。
@@ -68,7 +92,19 @@ FAIL    github.com/amanda/arrayAndSlice [build failed]
 8. make([]int, length) 
 	- 创建指定类型和长度(容量)的切片
 
-9. 使用 `append` 函数，来为切片追加新值
-	- 数组有越界问题，切片相当于长度不是类型的数组，有容量的概念，所以也存在越界
+9. 使用 `append` 函数，从原来的切片中创建一个新切片
+	- 数组有越界问题，属于编译时错误
+	- 切片相当于长度不是类型的数组，有容量的概念，所以也存在越界
+	- 切片发生越界，属于运行时错误
 	可以通过sums = append(sums, xxx)来实现追加
+
+10. 如何获取部分切片
+	- 使用语法 slice[low:high] 获取部分切片。
+		如果在冒号的一侧没有数字就会一直取到最边缘的元素。
+		我们使用 numbers[1:] 取到从索引 1 到最后一个元素。
+		你可能需要花费一些时间才能熟悉切片的操作。
+
+11. 获取数组和切片的长度，如 len([]int{1, 2, 3})
+
+12. 通过重构，提取出checkSums公用函数，一定程度上增加了代码的类型安全
 */
