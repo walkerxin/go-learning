@@ -1,5 +1,7 @@
 package iteration
 
+import "strings"
+
 // Repeat the taked character return five
 func Repeat(character string, frequency int) string {
 	var repeated string
@@ -7,4 +9,8 @@ func Repeat(character string, frequency int) string {
 		repeated += character
 	}
 	return repeated
+}
+
+func ApiRepeat(character string, count int) string {
+	return strings.Repeat(character, count)
 }

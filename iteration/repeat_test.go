@@ -1,7 +1,9 @@
 package iteration
 
-import "fmt"
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestRepeat(t *testing.T) {
 	repeated := Repeat("a", 3)
@@ -9,6 +11,14 @@ func TestRepeat(t *testing.T) {
 
 	if repeated != expected {
 		t.Errorf("expected '%s' but got '%s'", expected, repeated)
+	}
+}
+
+func TestApiRepeat(t *testing.T) {
+	repeated := ApiRepeat("nb", 6)
+	expected := "nbnbnbnbnbnb"
+	if repeated != expected {
+		t.Errorf("expected '%q' but got '%q'", expected, repeated)
 	}
 }
 
@@ -32,8 +42,13 @@ func ExampleRepeat() {
 声明变量
 	:= 包含两步（声明并初始化变量，推断类型)
 	var 关键字显式声明，指定类型
+		var a int
+		var b = true
 	= 仍是赋值
 2. %s 与%q的区别？
+	%s的：repeat_test.go:13: expected 'a1aa' but got 'aaa'
+	%q的：repeat_test.go:21: expected '"nb"' but got '"nbnbnbnbnbnb"'
+		sum_test.go:12: expected ''\x0f'' but got ''\x00''
 3. 编写**`基准测试（benchmarks）`**
 	- 是Go语言的另一个一级特性，它与编写测试非常相似
 	- 【声明】func BenchmarkRepeat(b *testing.B)

@@ -29,7 +29,7 @@ func ExampleAdd() {
 	[解释](https://dave.cheney.net/2014/12/01/five-suggestions-for-setting-up-a-go-project)
 	integer包，表示将聚集那些处理整数的函数
 1. 占位符
-	%d 整数
+	%d 十进制整数
 	%s 字符串
 	%q
 2. 函数声明中参数类型相同时可缩写
